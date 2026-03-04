@@ -1,76 +1,113 @@
-/* Contenitore principale: usiamo stretch per forzare l'altezza uguale */
+/* Layout Principale */
 .main-container {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* FONDAMENTALE: le due colonne avranno la stessa altezza */
-    gap: 0; /* Riduciamo o eliminiamo il gap per un look più compatto, o mettilo a 20px se vuoi aria */
+    align-items: stretch; /* Forza altezza uguale tra form e mappa */
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
+    background-color: #fff;
 }
 
-/* Colonna di sinistra */
+/* Colonna Sinistra */
 .left-column {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: #f2f2f2; /* Grigio chiaro esteso a tutta la colonna */
+    background-color: #ffffff; /* Sfondo bianco come richiesto */
     padding: 40px;
-    border: 1px solid #ddd; /* Bordo leggero per definire il quadrato */
+    border: 1px solid #ddd;
 }
 
-/* Rimuoviamo lo sfondo specifico da info-box perché ora è tutto nella colonna */
-.info-box {
-    background-color: transparent; 
-    padding: 0;
-    margin-top: 30px;
-    display: flex;
-}
-
-/* Testi contatti: aggiustiamo i margini per farli stare bene nel quadrato */
 .contatti-testo {
-    border-bottom: 1px solid #ccc; /* Una linea di separazione interna */
+    border-bottom: 1px solid #eee;
     padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.contatti-testo h3 {
+    margin-top: 0;
+    font-weight: 900;
+}
+
+/* Form Styles */
+.contact-form-wrapper h2 {
+    text-align: left;
+    font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-/* Mappa a Destra: deve combaciare perfettamente */
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.form-group input, 
+.form-group textarea {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Bottone Send a destra */
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.send-btn {
+    background-color: #5d5d5d; 
+    color: #000;
+    border: 1px solid #000;
+    padding: 10px 40px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Mappa a Destra */
 .map-container {
     flex: 1;
-    height: auto; /* Non più altezza fissa, ma segue la colonna sinistra */
     border: 1px solid #ddd;
-    border-left: none; /* Se vuoi che i due blocchi siano attaccati */
+    border-left: none; /* Attacca la mappa al form */
+    display: flex; /* Necessario per far riempire l'iframe */
 }
 
 .map-container iframe {
     width: 100%;
-    height: 100%; /* Copre tutto lo spazio del "quadrato" destro */
+    height: 100%;
+    min-height: 450px;
     display: block;
 }
 
-/* --- PULSANTE "SEND" RIBASSATO A DESTRA --- */
-.button-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 30px; /* Crea il dislivello visivo che volevi */
+/* Responsive */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .map-container {
+        border-left: 1px solid #ddd;
+        height: 300px;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
 }
-
-.submit-btn {
-    background-color: transparent;
-    color: #000;
-    padding: 10px 40px;
-    border: 2px solid #000;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #000;
-    color: #fff;
-}
-
 /* --- RESPONSIVE PER CELLULARE --- */
 
 @media (max-width: 768px) {
