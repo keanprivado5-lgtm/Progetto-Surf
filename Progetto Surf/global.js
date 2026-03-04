@@ -1,15 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
+
     // 1. GESTIONE CAMBIO COLORE IMMAGINI
     const colorCircles = document.querySelectorAll('.color-circle');
 
     colorCircles.forEach(circle => {
         circle.addEventListener('click', function () {
             const card = this.closest('.product-card');
+            if (!card) return;
             const imgNera = card.querySelector('.img-nera');
             const imgBianca = card.querySelector('.img-bianca');
             const color = this.getAttribute('data-color');
 
-            // Switch visibilità immagini
             if (color === 'white') {
                 imgNera.style.display = 'none';
                 imgBianca.style.display = 'block';
@@ -18,13 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 imgBianca.style.display = 'none';
             }
 
-            // Cambia cerchietto attivo
             card.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
             this.classList.add('active');
         });
     });
 
-    // 2. GESTIONE SELEZIONE TAGLIA (Bottoni Neri)
+    // 2. GESTIONE SELEZIONE TAGLIA
     const sizeButtons = document.querySelectorAll('.size-buttons button');
 
     sizeButtons.forEach(btn => {
@@ -37,8 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. LOGICA CARRELLO (Inizializzazione)
     let cart = JSON.parse(localStorage.getItem('hopena_cart')) || [];
-    renderCart();
-
+    
     // 4. APERTURA/CHIUSURA CARRELLO
     const sideCart = document.getElementById('side-cart');
     const overlay = document.getElementById('cart-overlay');
@@ -69,10 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const activeColor = card.querySelector('.color-circle.active').getAttribute('data-color');
+            const activeColorCircle = card.querySelector('.color-circle.active');
+            const activeColor = activeColorCircle ? activeColorCircle.getAttribute('data-color') : 'black';
             const productName = card.querySelector('h3').innerText;
 
-            // Trova l'immagine corretta (quella visibile)
             let productImg = "";
             const imgNera = card.querySelector('.img-nera');
             const imgBianca = card.querySelector('.img-bianca');
@@ -101,10 +100,24 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             saveAndRender();
-            if (!sideCart.classList.contains('open')) toggleCart();
+            if (sideCart && !sideCart.classList.contains('open')) toggleCart();
         });
     });
 
+    // 6. GESTIONE TASTO PROCEDI AL PAGAMENTO (NUOVO)
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert("Il tuo carrello è vuoto!");
+                return;
+            }
+            // Ti sposta alla pagina di inserimento dati
+            window.location.href = 'checkout.html';
+        });
+    }
+
+    // FUNZIONI DI SUPPORTO
     function saveAndRender() {
         localStorage.setItem('hopena_cart', JSON.stringify(cart));
         renderCart();
@@ -120,11 +133,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (cart.length === 0) {
             container.innerHTML = '<p class="empty-msg">Il carrello è vuoto.</p>';
+            if (totalEl) totalEl.innerText = "0";
+            return;
         }
 
         cart.forEach((item, index) => {
             total += item.price * item.qty;
-            container.innerHTML += `
+            const itemHTML = `
                 <div class="cart-item">
                     <img src="${item.img}" class="cart-item-img">
                     <div class="cart-item-info">
@@ -142,10 +157,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             `;
+            container.innerHTML += itemHTML;
         });
         if (totalEl) totalEl.innerText = total;
     }
 
+    // Funzioni globali per i bottoni dinamici
     window.changeQuantity = (index, delta) => {
         cart[index].qty += delta;
         if (cart[index].qty <= 0) cart.splice(index, 1);
@@ -156,4 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cart.splice(index, 1);
         saveAndRender();
     };
+
+    // Render iniziale al caricamento della pagina
+    renderCart();
 });

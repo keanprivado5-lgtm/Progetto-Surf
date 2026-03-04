@@ -30,7 +30,7 @@
         </div>
 
         <div class="auth-right">
-            <a href="./carrello.html" class="icon-link" title="Carrello">
+            <a href="#" class="icon-link" title="Carrello" id="cart-icon-btn">
                 <img src="./img/icona-linea-carrello.webp" alt="Shop" class="cart-icon">
             </a>
 
@@ -40,7 +40,25 @@
             </a>
         </div>
     </header>
-    
+
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <div id="side-cart" class="side-cart">
+        <div class="cart-header">
+            <h3>Il tuo Carrello</h3>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <div id="cart-items-container" class="cart-items-container">
+            <p class="empty-msg">Il carrello è vuoto.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Totale:</span>
+                <span><span id="cart-total-amount">0</span>€</span>
+            </div>
+            <button class="checkout-btn">Procedi all'ordine</button>
+        </div>
+    </div>
+
 
     <div class="booking-container">
         <h2>Prenota la tua Onda 🏄‍♂️</h2>
@@ -94,6 +112,8 @@
             &copy; 2026 HOPENA - Tutti i diritti riservati.
         </div>
     </footer>
+
+    <script src="global.js"></script>
 
 
 </body>
