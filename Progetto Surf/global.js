@@ -177,3 +177,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render iniziale al caricamento della pagina
     renderCart();
 });
+
+/* Immagine Benvenuto JS  */
+window.addEventListener('scroll', () => {
+    const heroImages = document.querySelectorAll('.hero-image');
+
+    heroImages.forEach((img) => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            let distance = window.innerHeight - rect.top;
+            let scaleAmount = 1 + (distance * 0.0002);
+            img.style.transform = `scale(${scaleAmount})`;
+        }
+    });
+});
+window.addEventListener('scroll', () => {
+    const heroImages = document.querySelectorAll('.hero-image1');
+
+    heroImages.forEach((img) => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            let distance = window.innerHeight - rect.top;
+            let scaleAmount = 1 + (distance * 0.0002);
+            img.style.transform = `scale(${scaleAmount})`;
+        }
+    });
+});
+window.addEventListener('scroll', () => {
+    const heroImages = document.querySelectorAll('.hero-image2');
+
+    heroImages.forEach((img) => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            let distance = window.innerHeight - rect.top;
+            let scaleAmount = 1 + (distance * 0.0002);
+            img.style.transform = `scale(${scaleAmount})`;
+        }
+    });
+});
