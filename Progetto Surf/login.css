@@ -1,0 +1,279 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f9f9f9; 
+    color: #333;
+    line-height: 1.5;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.column {
+    flex: 1;
+}
+
+.form-title {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.column-login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.column-register {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form-box {
+    background-color: #ffffff00;
+    border: 1px solid #e1e1e100;
+    border-radius: 4px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    margin-left: -30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+.required {
+    color: #d93025; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 15px;
+    background-color: #f1f1f1;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    color: #333;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #ccc;
+    background-color: #fff;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+.password-input-group input {
+    padding-right: 45px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    color: #777;
+    transition: color 0.2s;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.password-toggle:hover {
+    color: #333;
+}
+
+/* --- Icona dell'occhio --- */
+.eye-icon {
+    display: inline-block;
+    width: 22px;
+    height: 14px;
+    position: relative;
+}
+
+.eye-icon::before {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 14px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+}
+.visible-eye::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.hidden-eye {
+    width: 24px; 
+    height: 16px;
+}
+
+.hidden-eye::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 2px;
+    background-color: currentColor;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    border-radius: 1px;
+}
+.hidden-eye::before {
+    width: 24px;
+    height: 16px;
+}
+
+.submit-btn {
+    display: inline-block;
+    padding: 8px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #007bff; 
+    background-color: transparent;
+    border: 2px solid #007bff; 
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    text-transform: capitalize;
+}
+
+.submit-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.form-footer-login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+.login-actions-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 0;
+}
+
+.forgot-password-link {
+    font-size: 13px;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s;
+    margin-left: 2px;
+}
+
+.forgot-password-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.form-disclaimer {
+    margin: 30px 0;
+    font-size: 13.5px;
+    color: #444;
+}
+
+.form-disclaimer p {
+    max-width: 500px;
+}
+
+.privacy-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.privacy-link:hover {
+    text-decoration: underline;
+}
+
+.form-footer-register {
+    margin-top: 10px;
+}
+
+.submit-btn-register {
+    text-transform: capitalize;
+}
+
+/* Reattività al Telefono */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .login-form-box {
+        margin-left: 0;
+        width: 100%;
+        max-width: 450px;
+    }
+}

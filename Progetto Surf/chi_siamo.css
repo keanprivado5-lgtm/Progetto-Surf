@@ -1,0 +1,144 @@
+/* --- PAGINA CHI SIAMO --- */
+
+
+.main-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* 1. SEZIONE INTRODUZIONE */
+.about-intro {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.about-intro h1 {
+    font-size: 42px;
+    color: #0077b6;
+    /* Blu Hopena */
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.intro-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 2. SEZIONE VALORI (GRIGLIA) */
+.values-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 100px;
+}
+
+.value-card {
+    flex: 1;
+    background-color: #f0f9ff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border-bottom: 4px solid #00b4d8;
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #03045e;
+}
+
+.value-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* Sezione Team */
+.instructors-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.instructors-section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* La Card con foto a sinistra e testo a destra */
+.instructor-card {
+    display: flex;
+    /* Attiva le due colonne */
+    align-items: center;
+    /* Centra verticalmente il testo rispetto alla foto */
+    max-width: 800px;
+    margin: 0 auto;
+    /* Centra la card nella pagina */
+    background: #f9f9f9;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Controllo della foto */
+.instructor-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    /* Fondamentale: non schiaccia la foto, la adatta al quadrato */
+    display: block;
+}
+
+/* Spazio per il testo */
+.instructor-info {
+    padding: 40px;
+    flex: 1;
+    /* Prende tutto lo spazio rimanente a destra */
+    text-align: left;
+}
+
+.instructor-info h3 {
+    margin-top: 0;
+    font-size: 26px;
+    color: #0077b6;
+}
+
+.instructor-info p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* --- RESPONSIVE PER CELLULARE --- */
+@media (max-width: 768px) {
+    .instructor-card {
+        flex-direction: column;
+        /* Su mobile: foto sopra e testo sotto */
+        max-width: 100%;
+    }
+
+    .instructor-image img {
+        width: 100%;
+        /* La foto occupa tutta la larghezza */
+        height: auto;
+    }
+
+    .instructor-info {
+        padding: 20px;
+        text-align: center;
+        /* Testo centrato su mobile */
+    }
+}

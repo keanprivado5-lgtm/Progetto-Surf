@@ -1,0 +1,65 @@
+/* Istruttori */
+.instructors-section {
+  padding: 50px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.instructors-section h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.instructor-card {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #f4f4f4;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.instructor-image img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.instructor-info {
+  padding: 30px;
+  text-align: left;
+}
+
+.instructor-info h3 {
+  margin-top: 0;
+  color: #0077b6;
+  font-size: 22px;
+}
+
+.instructor-info p {
+  line-height: 1.6;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .instructor-card {
+    flex-direction: column;
+    /* Impila gli elementi verticalmente */
+    text-align: center;
+  }
+
+  .instructor-image img {
+    width: 100%;
+    /* La foto occupa tutta la larghezza su mobile */
+    height: 300px;
+  }
+
+  .instructor-info {
+    text-align: center;
+    /* Centra il testo per un look migliore su smartphone */
+  }
+}

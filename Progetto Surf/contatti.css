@@ -1,0 +1,104 @@
+/* Contenitore principale: usiamo stretch per forzare l'altezza uguale */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* FONDAMENTALE: le due colonne avranno la stessa altezza */
+    gap: 0; /* Riduciamo o eliminiamo il gap per un look più compatto, o mettilo a 20px se vuoi aria */
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Colonna di sinistra */
+.left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2; /* Grigio chiaro esteso a tutta la colonna */
+    padding: 40px;
+    border: 1px solid #ddd; /* Bordo leggero per definire il quadrato */
+}
+
+/* Rimuoviamo lo sfondo specifico da info-box perché ora è tutto nella colonna */
+.info-box {
+    background-color: transparent; 
+    padding: 0;
+    margin-top: 30px;
+    display: flex;
+}
+
+/* Testi contatti: aggiustiamo i margini per farli stare bene nel quadrato */
+.contatti-testo {
+    border-bottom: 1px solid #ccc; /* Una linea di separazione interna */
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+/* Mappa a Destra: deve combaciare perfettamente */
+.map-container {
+    flex: 1;
+    height: auto; /* Non più altezza fissa, ma segue la colonna sinistra */
+    border: 1px solid #ddd;
+    border-left: none; /* Se vuoi che i due blocchi siano attaccati */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%; /* Copre tutto lo spazio del "quadrato" destro */
+    display: block;
+}
+
+/* --- PULSANTE "SEND" RIBASSATO A DESTRA --- */
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px; /* Crea il dislivello visivo che volevi */
+}
+
+.submit-btn {
+    background-color: transparent;
+    color: #000;
+    padding: 10px 40px;
+    border: 2px solid #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* --- RESPONSIVE PER CELLULARE --- */
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .left-column {
+        width: 100%;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 350px;
+    }
+
+    .info-box {
+        padding: 20px;
+    }
+
+    .button-container {
+        justify-content: center;
+        /* Al centro su mobile */
+    }
+}

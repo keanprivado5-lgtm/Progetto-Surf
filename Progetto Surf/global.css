@@ -1,0 +1,335 @@
+/*GESTIAMO L'HEADER E IL FOOTER IN QUESTO FILE CSS
+
+/* RESET E BASE */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER - Struttura a 3 colonne */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky;
+  /* la barra rimane ferma e si muove*/
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 1 Link a sinistra */
+.nav-links {
+  flex: 1;
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 10px 15px;
+  white-space: nowrap;
+}
+
+/* 2 Logo al centro */
+.logo-center {
+  text-align: center;
+  flex: 1;
+}
+
+.logo-center a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.logo-center h1 {
+  margin: 0;
+  font-size: 28px;
+  color: white;
+}
+
+.logo-center img {
+  height: 80px;
+  width: auto;
+  display: block;
+  margin: 5px auto 0;
+  border: none;
+}
+
+.logo-center a:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+/* 3 Login e Shop a destra */
+.auth-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+
+.cart-icon {
+  height: 35px;
+  width: auto;
+  transition: transform 0.2s ease;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+}
+
+.btn-auth {
+  text-decoration: none;
+  background-color: #c7cdce;
+  color: white !important;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-auth:hover {
+  background-color: #0077b6;
+}
+
+/* FOOTER */
+.footer-container {
+  background-color: #000;
+  color: white;
+  padding: 30px 20px;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  text-align: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #222;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+
+/* --- SIDE CARRELLO (stava in abb css) --- */
+.side-cart {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100%;
+  background: white;
+  z-index: 2000;
+  transition: 0.4s;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* Forza l'altezza a tutto schermo */
+  padding-bottom: 30px;
+  /* Aggiunge spazio extra in fondo per il tasto */
+  box-sizing: border-box;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.side-cart.open {
+  right: 0;
+}
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1999;
+}
+
+.cart-overlay.active {
+  display: block;
+}
+
+/* --- ELEMENTI NEL CARRELLO --- */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.cart-item-info {
+  flex-grow: 1;
+}
+
+.cart-item-info strong {
+  display: block;
+  font-size: 14px;
+}
+
+.cart-item-info small {
+  color: #666;
+  font-size: 12px;
+}
+
+.cart-item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.qty-controls button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cart-footer {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 2px solid #eee;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.cart-items-container {
+  flex-grow: 1;
+  /* Prende tutto lo spazio centrale disponibile */
+  overflow-y: auto;
+  /* Se ci sono molti prodotti, appare la rotella interna */
+  margin-bottom: 20px;
+}
+
+/* Modifica la parte finale del carrello */
+.cart-footer {
+  border-top: 2px solid #eee;
+  padding-top: 15px;
+  background: white;
+  /* Evita che si veda roba sotto */
+  margin-top: auto;
+  /* Lo spinge sempre in fondo */
+}
+
+/* Aggiungi questa regola per unire numero ed euro */
+#cart-total-amount {
+  margin-right: 2px;
+  /* Spazio piccolissimo tra numero ed euro */
+}
+
+/* Assicurati che il contenitore del prezzo non abbia flex-grow */
+.cart-total span:last-child {
+  white-space: nowrap;
+  /* Impedisce che l'euro vada a capo */
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE (Cellulare) */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .nav-links ul {
+    justify-content: center;
+  }
+
+  .auth-right {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Adattamento istruttori per mobile */
+  .instructor-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .instructor-image img {
+    width: 100%;
+    height: 250px;
+  }
+
+  .instructor-info {
+    text-align: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
