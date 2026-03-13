@@ -7,70 +7,81 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="container">
-        <div class="column column-login">
-            <h2 class="form-title">Accedi</h2>
-            <form id="loginForm" class="login-form-box">
-                <div class="input-group">
-                <label for="login_email">Nome utente o indirizzo email <span class="required">*</span></label>
-                <input type="text" id="login_email" name="login_email" required>
-        </div>
-    <div class="input-group password-input-group">
-                 <label for="login_password">Password <span class="required">*</span></label>
-            <div class="input-wrapper">
-                    <input type="password" id="login_password" name="login_password" required>
-                    <button type="button" class="password-toggle" data-target="login_password" aria-label="Toggle password visibility">
-                    <span class="eye-icon hidden-eye"></span>
-                     </button>
-                    </div>
-             </div>
-    <div class="form-footer-login">
-         <div class="login-actions-left">
-                    <button type="submit" class="submit-btn submit-btn-login">Accedi</button>
-                <div class="checkbox-group">
-                        <input type="checkbox" id="remember_me" name="remember_me">
-                        <label for="remember_me">Ricordami</label>
-                </div>
-        </div>
-                <a href="#" class="forgot-password-link">Password dimenticata?</a>
-                </div>
-            </form>
-        </div>
+    <div class="flip-container">
+        <div class="flip-content">
+            <!-- Registration Form (Front) -->
+            <div class="flip-face flip-front">
+                <div class="form-container">
+                    <h2 class="form-title">Registrati</h2>
+                    <form id="registerForm" class="form-box">
+                        <div class="input-group">
+                            <label for="register_username">Nome utente <span class="required">*</span></label>
+                            <input type="text" id="register_username" name="register_username" required>
+                        </div>
 
-        <div class="column column-register">
-            <h2 class="form-title">Registrati</h2>
-            
-            <form id="registerForm">
-                <div class="input-group">
-                    <label for="register_username">Nome utente <span class="required">*</span></label>
-                    <input type="text" id="register_username" name="register_username" required>
-                </div>
+                        <div class="input-group">
+                            <label for="register_email">Indirizzo email <span class="required">*</span></label>
+                            <input type="email" id="register_email" name="register_email" required>
+                        </div>
 
-                <div class="input-group">
-                    <label for="register_email">Indirizzo email <span class="required">*</span></label>
-                    <input type="email" id="register_email" name="register_email" required>
-                </div>
+                        <div class="input-group password-input-group">
+                            <label for="register_password">Password <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <input type="password" id="register_password" name="register_password" required>
+                                <button type="button" class="password-toggle" data-target="register_password" aria-label="Toggle password visibility">
+                                    <img class="eye-icon" src="img/hidden.png" alt="Toggle password">
+                                </button>
+                            </div>
+                        </div>
 
-                <div class="input-group password-input-group">
-                    <label for="register_password">Password <span class="required">*</span></label>
-                    <div class="input-wrapper">
-                        <input type="password" id="register_password" name="register_password" required>
-                        <button type="button" class="password-toggle" data-target="register_password" aria-label="Toggle password visibility">
-                            <span class="eye-icon hidden-eye"></span>
-                        </button>
-                    </div>
-                </div>
+                        <div class="form-disclaimer">
+                            <p>
+                                I tuoi dati personali verranno utilizzati per supportare la tua esperienza su questo sito web, per gestire l'accesso al tuo account e per altri scopi descritti nella nostra <a href="#" class="privacy-link">privacy policy</a>.
+                            </p>
+                        </div>
 
-                <div class="form-disclaimer">
-                    <p>
-                        I tuoi dati personali verranno utilizzati per supportare la tua esperienza su questo sito web, per gestire l'accesso al tuo account e per altri scopi descritti nella nostra <a href="#" class="privacy-link">privacy policy</a>.
-                    </p>
+                        <div class="form-footer">
+                            <button type="submit" class="submit-btn submit-btn-register">Registrati</button>
+                            <p class="form-switch-text">Hai già un account? <button type="button" class="flip-btn">Accedi</button></p>
+                        </div>
+                    </form>
                 </div>
+            </div>
 
-                <div class="form-footer-register">
-                    <button type="submit" class="submit-btn submit-btn-register">Registrati</button>
+            <!-- Login Form (Back) -->
+            <div class="flip-face flip-back">
+                <div class="form-container">
+                    <h2 class="form-title">Accedi</h2>
+                    <form id="loginForm" class="form-box">
+                        <div class="input-group">
+                            <label for="login_email">Nome utente o indirizzo email <span class="required">*</span></label>
+                            <input type="text" id="login_email" name="login_email" required>
+                        </div>
+
+                        <div class="input-group password-input-group">
+                            <label for="login_password">Password <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <input type="password" id="login_password" name="login_password" required>
+                                <button type="button" class="password-toggle" data-target="login_password" aria-label="Toggle password visibility">
+                                    <img class="eye-icon" src="img/hidden.png" alt="Toggle password">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-footer">
+                            <div class="login-actions-left">
+                                <button type="submit" class="submit-btn submit-btn-login">Accedi</button>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="remember_me" name="remember_me">
+                                    <label for="remember_me">Ricordami</label>
+                                </div>
+                            </div>
+                            <a href="#" class="forgot-password-link">Password dimenticata?</a>
+                            <p class="form-switch-text">Non hai un account? <button type="button" class="flip-btn">Registrati</button></p>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 

@@ -2,99 +2,92 @@
 .main-container {
     display: flex;
     justify-content: center;
-    align-items: stretch; 
-    gap: 0; 
+    align-items: stretch; /* Pareggia le altezze */
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
+    background-color: #fff;
 }
 
-/* Colonna di sinistra */
+/* Colonna Sinistra (Form) */
 .left-column {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: #f2f2f2; 
+    background-color: #f2f2f2;
     padding: 40px;
-    border: 1px solid #ddd; 
+    border: 1px solid #ddd;
 }
 
-
-.info-box {
-    background-color: transparent; 
-    padding: 0;
-    margin-top: 30px;
-    display: flex;
-}
-
-/* Testi contatti */
-.contatti-testo {
-    border-bottom: 1px solid #ccc; 
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-/* Mappa a Destra */
+/* Colonna Destra (Mappa) */
 .map-container {
     flex: 1;
-    height: auto; 
+    display: flex; /* Importante per far riempire l'altezza all'iframe */
     border: 1px solid #ddd;
-    border-left: none;
+    border-left: none; /* Unisce visivamente i due blocchi */
 }
 
 .map-container iframe {
     width: 100%;
-    height: 100%; 
+    height: 100%; /* L'iframe ora segue fedelmente l'altezza della colonna sinistra */
+    border: 0;
     display: block;
 }
 
-/* --- PULSANTE "SEND" RIBASSATO A DESTRA --- */
+/* Elementi Interni */
+.contatti-testo {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.contatti-testo h3 {
+    margin-top: 0;
+    font-weight: 900;
+}
+
+.info-box {
+    background-color: transparent; 
+    margin-top: 30px;
+    display: flex;
+}
+
 .button-container {
     display: flex;
     justify-content: flex-end;
-    margin-top: 30px; 
+    margin-top: 30px;
 }
 
-.submit-btn {
-    background-color: transparent;
-    color: #000;
+.send-btn {
+    background-color: #5d5d5d; 
+    color: #fff; /* Cambiato in bianco per contrasto, prima era nero su grigio scuro */
+    border: 1px solid #000;
     padding: 10px 40px;
-    border: 2px solid #000;
     font-weight: bold;
-    text-transform: uppercase;
     cursor: pointer;
+    text-transform: uppercase;
     transition: 0.3s;
 }
 
-.submit-btn:hover {
+.send-btn:hover {
     background-color: #000;
-    color: #fff;
 }
 
-/* --- RESPONSIVE PER CELLULARE --- */
-
+/* --- RESPONSIVE UNIFICATO --- */
 @media (max-width: 768px) {
     .main-container {
         flex-direction: column;
-        gap: 30px;
-    }
-
-    .form-row {
-        flex-direction: column;
-        gap: 0;
+        padding: 0 10px;
     }
 
     .left-column {
-        width: 100%;
+        border-bottom: none; /* Evita doppio bordo quando sono impilati */
     }
 
     .map-container {
         width: 100%;
-        height: 350px;
-    }
-
-    .info-box {
-        padding: 20px;
+        height: 350px; /* Altezza fissa su mobile */
+        border-left: 1px solid #ddd; /* Ripristina il bordo su mobile */
     }
 
     .button-container {
