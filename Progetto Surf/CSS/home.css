@@ -48,18 +48,15 @@
 @media (max-width: 768px) {
   .instructor-card {
     flex-direction: column;
-    /* Impila gli elementi verticalmente */
     text-align: center;
   }
 
   .instructor-image img {
     width: 100%;
-    /* La foto occupa tutta la larghezza su mobile */
     height: 300px;
   }
 
   .instructor-info {
     text-align: center;
-    /* Centra il testo per un look migliore su smartphone */
   }
 }

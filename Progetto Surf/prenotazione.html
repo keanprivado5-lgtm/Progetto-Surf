@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./CSS/global.css">
+    <link rel="stylesheet" href="./CSS/prenotazione.css">
+</head>
+
+<body>
+
+    <header class="header-container">
+        <nav class="nav-links">
+            <ul>
+                <li><a href="chi_siamo.html">Chi siamo</a></li>
+                <li><a href="lezione.html">Lezione</a></li>
+                <!-- <li><a href="abbigliamento.html">Abbigliamento</a></li> -->
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+
+
+        <div class="logo-center">
+            <a href="index.html" class="logo-link">
+                <img src="./img/logo hopena.png" alt="HOPENA LOGO">
+            </a>
+        </div>
+
+        <div class="auth-right">
+            <!-- <a href="#" class="icon-link" title="Carrello" id="cart-icon-btn">
+            <img src="./img/icona-linea-carrello.webp" alt="Shop" class="cart-icon">
+            </a>
+            -->
+
+            <a href="./login.html" class="icon-link" title="Login">
+                <img src="./img/surfing-icon-surfer-sign-icon-related-to-water-sport-summer-two-tone-icon-style-design-simple-design-editable-vector.webp"
+                    alt="login" class="cart-icon">
+            </a>
+        </div>
+    </header>
+
+    <!-- implementeremo più in là
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <div id="side-cart" class="side-cart">
+    <div class="cart-header">
+      <h3>Il tuo Carrello</h3>
+      <button id="close-cart" class="close-btn">&times;</button>
+    </div>
+    <div id="cart-items-container" class="cart-items-container">
+      <p class="empty-msg">Il carrello è vuoto.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Totale:</span>
+        <span><span id="cart-total-amount">0</span>€</span>
+      </div>
+      <button class="checkout-btn">Procedi all'ordine</button>
+    </div>
+  </div>
+  -->
+
+
+
+    <div class="booking-container">
+        <h2>Prenota la tua Onda 🏄‍♂️</h2>
+
+        <form id="bookingForm">
+            <label for="lessonType">Tipo di Lezione:</label>
+            <select id="lessonType" required>
+                <option value="" disabled selected>Scegli un'opzione...</option>
+                <option value="gruppo">Lezione di Gruppo (Principianti)</option>
+                <option value="privata">Lezione di Gruppo (Intermedio)</option>
+                <option value="noleggio">Solo Noleggio Tavola & Muta</option>
+            </select>
+
+            <label for="date">Data:</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Orario:</label>
+            <select id="time" required>
+                <option value="" disabled selected>Scegli l'orario...</option>
+                <option value="09:00">09:00 - Mattina (Onde calme)</option>
+                <option value="14:00">15:00 - Pomeriggio</option>
+            </select>
+
+            <button type="submit">Prenota Ora</button>
+        </form>
+
+        <div id="confirmation"></div>
+    </div>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const bookingForm = document.getElementById('bookingForm');
+        const dateInput = document.getElementById('date');
+        const confirmationBox = document.getElementById('confirmation');
+
+        // Imposta la data minima (oggi)
+        const today = new Date().toISOString().split('T')[0];
+        if (dateInput) {
+            dateInput.setAttribute('min', today);
+        }
+
+        // Gestione invio form
+        bookingForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const type = document.getElementById('lessonType').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            // Mostra conferma
+            confirmationBox.innerHTML = `<strong>Fantastico!</strong> Hai richiesto una lezione <em>${type}</em> per il <strong>${date}</strong> alle <strong>${time}</strong>. <br><br> (Simulazione completata)`;
+            confirmationBox.style.display = 'block';
+
+            this.reset();
+        });
+    });
+</script>
+
+</html>
