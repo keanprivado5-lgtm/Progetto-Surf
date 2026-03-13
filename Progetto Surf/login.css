@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.flip-container {
+    width: 100%;
+    max-width: 450px;
+    height: 600px;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.flip-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-content.flipped {
+    transform: rotateY(180deg);
+}
+
+.flip-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-front {
+    z-index: 2;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+.form-container {
+    width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.form-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 35px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.form-box {
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.required {
+    color: #d93025; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 15px;
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    color: #333;
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #667eea;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-input-group input {
+    padding-right: 45px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+    outline: none;
+}
+
+.password-toggle:hover {
+    opacity: 0.7;
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: block;
+}
+
+.submit-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #667eea;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-footer {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.login-actions-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: #667eea;
+}
+
+.checkbox-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.forgot-password-link {
+    font-size: 13px;
+    color: #667eea;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: block;
+    margin-top: 12px;
+}
+
+.forgot-password-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.form-disclaimer {
+    margin: 25px 0;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.form-disclaimer p {
+    margin: 0;
+}
+
+.privacy-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.privacy-link:hover {
+    text-decoration: underline;
+}
+
+.submit-btn:hover {
+    background-color: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.form-switch-text {
+    font-size: 13px;
+    color: #666;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.flip-btn {
+    background: none;
+    border: none;
+    color: #667eea;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0;
+    text-decoration: underline;
+    transition: color 0.2s;
+    font-size: 13px;
+}
+
+.flip-btn:hover {
+    color: #764ba2;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .flip-container {
+        height: auto;
+        max-width: 350px;
+    }
+
+    .form-container {
+        padding: 35px 25px;
+        border-radius: 12px;
+    }
+
+    .form-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 14px 20px;
+    }
+
+    .login-actions-left {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

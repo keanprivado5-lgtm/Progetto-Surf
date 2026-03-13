@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Flip Animation Handler ---
+    // --- Flip Animation ---
     const flipContent = document.querySelector('.flip-content');
     const flipButtons = document.querySelectorAll('.flip-btn');
     
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 2. Password Visibility Toggle ---
+    // --- Password Visibility Toggle ---
     const passwordToggles = document.querySelectorAll('.password-toggle');
 
     passwordToggles.forEach(toggle => {
@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Toggle input type
             passwordInput.type = isPassword ? 'text' : 'password';
-            
-            // Toggle icon - swap between hidden and visible (shown)
             if (isPassword) {
                 eyeIcon.src = 'img/eye.png';
                 eyeIcon.alt = 'Hide password';
@@ -40,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 3. Form Submission Handler ---
+    // --- Form Submission Handler ---
     const destinationPage = 'index.html';
 
     const setupFormRedirect = (formId) => {

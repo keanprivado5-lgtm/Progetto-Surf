@@ -215,4 +215,3 @@ window.addEventListener('scroll', () => {
         }
     });
 });
-
